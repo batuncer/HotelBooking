@@ -28,6 +28,9 @@ jobs:
     - name: Install dependencies
       run: npm ci
 
+    - name: Install pm2
+      run: npm i pm2
+
     - name: Build
       run: npm run build --if-present
 
