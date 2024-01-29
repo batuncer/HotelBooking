@@ -1,20 +1,20 @@
+
 const express = require("express");
+const app = express();
 const router = express.Router();
 
+app.use("/api", router);
+
 const customers = require("./customers");
-const discount = require("./discount");
-const invoice = require("./invoice");
 const reservations = require("./reservations");
-const reviews = require("./reviews");
 const roomTypes = require("./room-types");
+const availableRooms = require("./available-rooms");
+const loginContoller = require("./login");
 
 router.use("/customers", customers);
-router.use("/discount", discount);
-router.use("/invoice", invoice);
 router.use("/reservations", reservations);
-router.use("/reviews", reviews);
 router.use("/room-types", roomTypes);
+router.use("/available-rooms", availableRooms);
+router.use("/login", loginContoller);
 
 module.exports = router;
-
-// router.use("/v2", v2ApiController);
