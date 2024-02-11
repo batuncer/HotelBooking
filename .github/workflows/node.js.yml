@@ -34,6 +34,8 @@ jobs:
     - name: Build
       run: npm run build --if-present
 
+    - name: Update from main branch
+      run: git pull origin main
 
     - name: Create .env file
       run: |
