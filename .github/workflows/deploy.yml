@@ -24,10 +24,10 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Tag Docker Image
-        run: docker tag backend:latest bakituncer/backend:latest
+        run: docker tag hotel-backend:latest bakituncer/hotel-backend:latest
 
       - name: Push Docker Image to DockerHub
-        run: docker push bakituncer/backend:latest
+        run: docker push bakituncer/hotel-backend:latest
 
   deploy:
     name: Deploy to EC2
@@ -42,7 +42,7 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_PRIVATE_KEY }}
           script: |
-            docker stop backend || true
-            docker rm backend || true
-            docker pull bakituncer/backend:latest
-            docker run -d -p 3000:3000 --name backend bakituncer/backend:latest
+            docker stop hotel-backend || true
+            docker rm hotel-backend || true
+            docker pull bakituncer/hotel-backend:latest
+            docker run -d -p 3000:3000 --name backend bakituncer/hotel-backend:latest
