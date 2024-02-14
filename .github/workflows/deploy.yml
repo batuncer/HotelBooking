@@ -14,8 +14,12 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Build Docker Image
-        run: docker build -t hotel-backend .
+      - name: Set up SSH credentials
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.EC2_PRIVATE_KEY }}
 
       - name: Log in to DockerHub
         uses: docker/login-action@v2
@@ -23,8 +27,10 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Tag Docker Image
-        run: docker tag hotel-backend:latest bakituncer/hotel-backend:latest
+      - name: Build Docker image
+        run: |
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/backend .
+          docker push ${{ secrets.DOCKER_USERNAME }}/hotel-backend
 
       - name: Push Docker Image to DockerHub
         run: docker push bakituncer/hotel-backend:latest
@@ -38,9 +44,6 @@ jobs:
       - name: SSH into EC2 and Deploy
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ${{ secrets.EC2_USERNAME }}
-          key: ${{ secrets.EC2_PRIVATE_KEY }}
           script: |
             docker stop hotel-backend || true
             docker rm hotel-backend || true
