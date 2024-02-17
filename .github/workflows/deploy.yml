@@ -41,4 +41,4 @@ jobs:
             docker stop hotel-backend || true
             docker rm hotel-backend || true
             docker pull ${{ secrets.DOCKER_USERNAME }}/hotel-backend:latest
-            docker run -d -p 8080:8080 --name hotel-backend ${{ secrets.DOCKER_USERNAME }}/hotel-backend:latest &> /tmp/run.log
+            docker run -d -p 8080:8080 --name hotel-backend ${{ secrets.DOCKER_USERNAME }}/hotel-backend:latest
