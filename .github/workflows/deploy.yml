@@ -38,7 +38,7 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_PRIVATE_KEY }}
           script: |
-            ssh -i ${{ secrets.EC2_PRIVATE_KEY }} ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }} 'docker stop hotel-backend || true'
-            ssh -i ${{ secrets.EC2_PRIVATE_KEY }} ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }} 'docker rm hotel-backend || true'
-            ssh -i ${{ secrets.EC2_PRIVATE_KEY }} ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }} 'docker pull <your_docker_username>/hotel-backend:latest'
-            ssh -i ${{ secrets.EC2_PRIVATE_KEY }} ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }} 'docker run -d -p 8080:8080 --name hotel-backend <your_docker_username>/hotel-backend:latest'
+            docker stop hotel-backend || true
+            docker rm hotel-backend || true
+            docker pull ${{ secrets.DOCKER_USERNAME }}/hotel-backend:latest
+            docker run -d -p 8080:8080 --name hotel-backend ${{ secrets.DOCKER_USERNAME }}/hotel-backend:latest
