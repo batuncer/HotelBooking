@@ -41,12 +41,12 @@ jobs:
             docker stop hotel-backend || true
             docker rm hotel-backend || true
             docker pull ${{ secrets.DOCKER_USERNAME }}/hotel-backend:latest
-            docker run \
+            docker run -d \
               -e DB_HOST=${{ secrets.DB_HOST }} \ 
-              -e  DB_USER=${{ secrets.DB_USER}}  \ 
+              -e DB_USER=${{ secrets.DB_USER}}  \ 
               -e DB_PASSWORD=${{ secrets.DB_PASSWORD}} \ 
               -e DB_NAME=${{ secrets.DB_NAME}} \ 
               -e DB_PORT=${{ secrets.DB_PORT}} \ 
               -p 8080:8080  \ 
               --name hotel-backend \ 
-              bakituncer/hotel-backend:latest
+              ${{ secrets.DOCKER_USERNAME }}/hotel-backend:latest
