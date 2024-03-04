@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  cyf_hotel_backend:
+    image: bakituncer/hotel-backend:tagname
+    ports:
+      - "8080:8080"
+    environment:
+      - DATABASE_URL=${DB_HOST}
+    depends_on:
+      - database
+    networks:
+      - backend-network
+
+  database:
+    image: your-database-image-name:tag
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    networks:
+      - backend-network
+
+networks:
+  backend-network:
+
+volumes:
+  db-data:
