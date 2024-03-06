@@ -8,6 +8,7 @@ This project is a hotel room booking application where users can view available 
 - **React**: A JavaScript library for building user interfaces.
 - **Material-UI**: A popular React UI framework that provides pre-designed components following the Material Design guidelines.
 - **JWT (JSON Web Tokens)**: Used for secure authentication and authorization of users.
+- **Front-end github**:[https://github.com/batuncer/HotelBooking-Frontend]
 
 ### Back End
 - **Node.js**: A JavaScript runtime environment for server-side development.
@@ -32,6 +33,7 @@ The application is deployed on Amazon Web Services (AWS) using the following ste
 2. **Docker Containerization**: Containerize the application using Docker for easy deployment and scalability.
 3. **Continuous Integration/Continuous Deployment (CI/CD)**: Implement CI/CD pipelines to automate the build, test, and deployment processes.
 4. **Monitoring and Logging**: Utilize AWS CloudWatch for monitoring application performance and logging.
+5. **URL**: [http://hotelmain.s3-website-us-west-2.amazonaws.com]
 
 ## Setup Instructions
 To set up the project locally, follow these steps:
@@ -41,3 +43,4 @@ To set up the project locally, follow these steps:
 4. Run the back end server.
 5. Run the front end application.
 6. Access the application via the provided URL.
+   
