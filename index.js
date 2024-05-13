@@ -34,6 +34,12 @@ app.get("/", function (req, res, next) {
   res.render("home");
 });
 
-app.listen(SERVER_PORT, () => {
-  console.info(`Server started at http://localhost:${SERVER_PORT}`);
-});
+// app.listen(SERVER_PORT, () => {
+//   console.info(`Server started at http://localhost:${SERVER_PORT}`);
+// });
+module.exports = app;
+
+
+
+
+
