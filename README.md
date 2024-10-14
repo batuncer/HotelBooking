@@ -33,7 +33,9 @@ The application is deployed on Amazon Web Services (AWS) using the following ste
 2. **Docker Containerization**: Containerize the application using Docker for easy deployment and scalability.
 3. **Continuous Integration/Continuous Deployment (CI/CD)**: Implement CI/CD pipelines to automate the build, test, and deployment processes.
 4. **Monitoring and Logging**: Utilize AWS CloudWatch for monitoring application performance and logging.
-5. **URL**: http://hotelmain.s3-website-us-west-2.amazonaws.com
+5. **URL**: http://hotelmain.s3-website-us-west-2.amazonaws.com- DELETED
+6. **NEW URL**: https://hotel-booking-frontend-mu.vercel.app
+   
 
 ## Setup Instructions
 To set up the project locally, follow these steps:
